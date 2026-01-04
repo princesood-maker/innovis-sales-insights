@@ -1,136 +1,119 @@
-import { Globe, Mail, MapPin, Phone, Linkedin, Twitter } from 'lucide-react';
+import { Building2, MapPin } from 'lucide-react';
 import innovisLogo from '@/assets/innovis-logo.png';
 
 const footerLinks = {
-  product: [
-    { label: 'Features', href: '#features' },
-    { label: 'Dashboard Demo', href: '#demo' },
-    { label: 'Benefits', href: '#benefits' },
-    { label: 'Pricing', href: '#' },
-    { label: 'Case Studies', href: '#' },
+  aboutUs: [
+    { label: 'Leadership Team', href: '#' },
+    { label: 'Our Growth Story', href: '#' },
+    { label: 'Our Clients', href: '#' },
   ],
-  company: [
-    { label: 'About Innovis', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Global Presence', href: '#' },
-    { label: 'News', href: '#' },
-    { label: 'Partners', href: '#' },
+  globalPresence: [
+    { label: 'Africa', href: '#' },
+    { label: 'Asia', href: '#' },
+    { label: 'Middle East', href: '#' },
   ],
-  support: [
-    { label: 'Help Center', href: '#' },
-    { label: 'Documentation', href: '#' },
-    { label: 'API Reference', href: '#' },
-    { label: 'Status', href: '#' },
+  career: [
+    { label: 'Life @ Innovis', href: '#' },
+    { label: 'Join Our Team', href: '#' },
+    { label: 'Contact Us', href: '#contact' },
   ],
 };
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="bg-secondary/50 border-t border-border">
+    <footer id="contact" className="bg-foreground">
       {/* Main Footer */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Brand */}
-          <div className="col-span-2 lg:col-span-1">
-            <img src={innovisLogo} alt="Innovis" className="h-8 mb-4" />
-            <p className="text-sm text-muted-foreground mb-6 max-w-xs">
-              Infrastructure for Tomorrow. Powering global telecom and energy operations since 2010.
-            </p>
-            <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
-                <Twitter className="w-5 h-5" />
-              </a>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+          {/* Innovis Expansion */}
+          <div>
+            <h4 className="font-semibold text-primary-foreground mb-6">Innovis Expansion</h4>
+            <div className="text-5xl lg:text-6xl font-light text-primary-foreground/90 mb-2">
+              2,000+
             </div>
+            <p className="text-sm text-primary-foreground/60">
+              Global workforce in 2025
+            </p>
           </div>
 
-          {/* Product Links */}
+          {/* Quick Contact */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Product</h4>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support Links */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Support</h4>
-            <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Contact</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-primary-foreground mb-6">Quick Contact</h4>
+            <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-primary mt-0.5" />
-                <a href="mailto:solutions@innovis-global.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  solutions@innovis-global.com
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-primary mt-0.5" />
-                <span className="text-sm text-muted-foreground">
-                  Singapore (Global HQ)
+                <Building2 className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                <span className="text-sm text-primary-foreground/70">
+                  Innovis Holdings Pte. Ltd.
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <Globe className="w-4 h-4 text-primary mt-0.5" />
-                <span className="text-sm text-muted-foreground">
-                  20+ Countries Worldwide
+                <MapPin className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                <span className="text-sm text-primary-foreground/70">
+                  80 Raffles Place #58-01 UOB Plaza 1<br />
+                  Singapore 048624
                 </span>
               </li>
+            </ul>
+          </div>
+
+          {/* About Us */}
+          <div>
+            <h4 className="font-semibold text-primary-foreground mb-6">About Us</h4>
+            <ul className="space-y-3">
+              {footerLinks.aboutUs.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Global Presence */}
+          <div>
+            <h4 className="font-semibold text-primary-foreground mb-6">Global Presence</h4>
+            <ul className="space-y-3">
+              {footerLinks.globalPresence.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Career */}
+          <div>
+            <h4 className="font-semibold text-primary-foreground mb-6">Career</h4>
+            <ul className="space-y-3">
+              {footerLinks.career.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-primary-foreground/70 hover:text-primary transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border">
+      <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Innovis. All rights reserved.
+            <img src={innovisLogo} alt="Innovis" className="h-8" />
+            <p className="text-sm text-primary-foreground/50">
+              © {new Date().getFullYear()} Innovis Holdings Pte. Ltd. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Cookie Policy
+              <a href="#" className="text-sm text-primary-foreground/50 hover:text-primary transition-colors">
+                Terms of Use
               </a>
             </div>
           </div>
