@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import innovisLogo from '@/assets/innovis-logo.png';
 
 const navLinks = [
@@ -48,12 +49,18 @@ export const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
+            <Link
+              to="/login"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
               className="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-lg hover:bg-primary/90 transition-all shadow-primary-glow hover:shadow-lg"
             >
-              Request Demo
-            </a>
+              Get Started
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,13 +97,20 @@ export const Navigation = () => {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="#contact"
+              <Link
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block py-2 text-base font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-center py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-all"
               >
-                Request Demo
-              </a>
+                Get Started
+              </Link>
             </div>
           </motion.div>
         )}
