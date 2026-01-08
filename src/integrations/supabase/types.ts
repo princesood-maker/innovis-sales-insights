@@ -14,7 +14,262 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      countries: {
+        Row: {
+          code: string
+          created_at: string
+          id: string
+          is_active: boolean | null
+          name: string
+          region: string | null
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name: string
+          region?: string | null
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          region?: string | null
+        }
+        Relationships: []
+      }
+      forecasts: {
+        Row: {
+          business_area: Database["public"]["Enums"]["business_area"]
+          country_id: string
+          created_at: string
+          created_by: string | null
+          expected_revenue: number | null
+          growth_assumption: number | null
+          id: string
+          notes: string | null
+          quarter: number | null
+          updated_at: string
+          year: number
+        }
+        Insert: {
+          business_area: Database["public"]["Enums"]["business_area"]
+          country_id: string
+          created_at?: string
+          created_by?: string | null
+          expected_revenue?: number | null
+          growth_assumption?: number | null
+          id?: string
+          notes?: string | null
+          quarter?: number | null
+          updated_at?: string
+          year: number
+        }
+        Update: {
+          business_area?: Database["public"]["Enums"]["business_area"]
+          country_id?: string
+          created_at?: string
+          created_by?: string | null
+          expected_revenue?: number | null
+          growth_assumption?: number | null
+          id?: string
+          notes?: string | null
+          quarter?: number | null
+          updated_at?: string
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "forecasts_country_id_fkey"
+            columns: ["country_id"]
+            isOneToOne: false
+            referencedRelation: "countries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      opportunities: {
+        Row: {
+          business_area: Database["public"]["Enums"]["business_area"]
+          country_id: string | null
+          created_at: string
+          created_by: string | null
+          creation_date: string | null
+          customer_name: string
+          deal_value: number
+          expected_closure_date: string | null
+          id: string
+          notes: string | null
+          opportunity_code: string
+          owner_id: string | null
+          probability: number
+          status: Database["public"]["Enums"]["opportunity_status"]
+          updated_at: string
+        }
+        Insert: {
+          business_area: Database["public"]["Enums"]["business_area"]
+          country_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          creation_date?: string | null
+          customer_name: string
+          deal_value?: number
+          expected_closure_date?: string | null
+          id?: string
+          notes?: string | null
+          opportunity_code: string
+          owner_id?: string | null
+          probability?: number
+          status?: Database["public"]["Enums"]["opportunity_status"]
+          updated_at?: string
+        }
+        Update: {
+          business_area?: Database["public"]["Enums"]["business_area"]
+          country_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          creation_date?: string | null
+          customer_name?: string
+          deal_value?: number
+          expected_closure_date?: string | null
+          id?: string
+          notes?: string | null
+          opportunity_code?: string
+          owner_id?: string | null
+          probability?: number
+          status?: Database["public"]["Enums"]["opportunity_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "opportunities_country_id_fkey"
+            columns: ["country_id"]
+            isOneToOne: false
+            referencedRelation: "countries"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "opportunities_owner_id_fkey"
+            columns: ["owner_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          country: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          country?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      project_delivery: {
+        Row: {
+          actual_revenue: number | null
+          actual_sites: number | null
+          actual_teams: number | null
+          country_id: string
+          created_at: string
+          created_by: string | null
+          forecast_revenue: number | null
+          forecast_sites: number | null
+          forecast_teams: number | null
+          health_status: Database["public"]["Enums"]["health_status"] | null
+          id: string
+          month: number
+          notes: string | null
+          planned_revenue: number | null
+          planned_sites: number | null
+          planned_teams: number | null
+          planning_assumptions: string | null
+          updated_at: string
+          year: number
+        }
+        Insert: {
+          actual_revenue?: number | null
+          actual_sites?: number | null
+          actual_teams?: number | null
+          country_id: string
+          created_at?: string
+          created_by?: string | null
+          forecast_revenue?: number | null
+          forecast_sites?: number | null
+          forecast_teams?: number | null
+          health_status?: Database["public"]["Enums"]["health_status"] | null
+          id?: string
+          month: number
+          notes?: string | null
+          planned_revenue?: number | null
+          planned_sites?: number | null
+          planned_teams?: number | null
+          planning_assumptions?: string | null
+          updated_at?: string
+          year: number
+        }
+        Update: {
+          actual_revenue?: number | null
+          actual_sites?: number | null
+          actual_teams?: number | null
+          country_id?: string
+          created_at?: string
+          created_by?: string | null
+          forecast_revenue?: number | null
+          forecast_sites?: number | null
+          forecast_teams?: number | null
+          health_status?: Database["public"]["Enums"]["health_status"] | null
+          id?: string
+          month?: number
+          notes?: string | null
+          planned_revenue?: number | null
+          planned_sites?: number | null
+          planned_teams?: number | null
+          planning_assumptions?: string | null
+          updated_at?: string
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_delivery_country_id_fkey"
+            columns: ["country_id"]
+            isOneToOne: false
+            referencedRelation: "countries"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +278,21 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      business_area:
+        | "Telecom Build"
+        | "Network Implementation"
+        | "NOC"
+        | "FLM"
+        | "Resource Provisioning"
+      health_status: "Green" | "Amber" | "Red"
+      opportunity_status:
+        | "Prospect"
+        | "Qualified"
+        | "RFP"
+        | "Proposal"
+        | "Negotiation"
+        | "Won"
+        | "Lost"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +419,24 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      business_area: [
+        "Telecom Build",
+        "Network Implementation",
+        "NOC",
+        "FLM",
+        "Resource Provisioning",
+      ],
+      health_status: ["Green", "Amber", "Red"],
+      opportunity_status: [
+        "Prospect",
+        "Qualified",
+        "RFP",
+        "Proposal",
+        "Negotiation",
+        "Won",
+        "Lost",
+      ],
+    },
   },
 } as const
